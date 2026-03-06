@@ -20,7 +20,7 @@
 
         * output: 輸出PDF檔名
 
-            pdflab --action=Merge --origin=<file.pdf> --source=<file.pdf> --output=<file.pdf>
+            	pdflab --action=Merge --origin=<file.pdf> --source=<file.pdf> --output=<file.pdf>
 
 
 * 疊加寫入、貼標模式(StickTags)
@@ -39,7 +39,7 @@
 
         * content: 張貼內容
 
-            pdflab --action=StickTags --origin=<file.pdf> --pagenum=<1> --x=500 --y=500 --content=<Tag, content>
+            	pdflab --action=StickTags --origin=<file.pdf> --pagenum=<1> --x=500 --y=500 --content=<Tag, content>
 
 * 文字檔內容轉PDF(WriteContentFromFile)
 
@@ -51,4 +51,4 @@
 
         * output: 輸出PDF檔
 
-            pdflab --action=WriteContentFromFile --cf=<content.txt> --output=<output.pdf>
+            	pdflab --action=WriteContentFromFile --cf=<content.txt> --output=<output.pdf>
