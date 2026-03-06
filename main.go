@@ -8,9 +8,9 @@ import (
 func main() {
 
 	action := flag.String("action", "", "Command action name")
-	originfilename := flag.String("of", "", "Origin File Name")
-	sourcefilename := flag.String("sf", "", "Source File Name")
-	outputfilename := flag.String("opf", "", "Output File Name")
+	originfilename := flag.String("origin", "", "Origin File Name")
+	sourcefilename := flag.String("source", "", "Source File Name")
+	outputfilename := flag.String("output", "", "Output File Name")
 	tagContent := flag.String("content", "", "Content")
 	contentfromfile := flag.String("cf", "", "Content From File")
 	pagenum := flag.Int("pagenum", 1, "Page Number")
@@ -50,7 +50,3 @@ func main() {
 		pdfopt.StickTags(params)
 	}
 }
-
-// 1) 合併模式：輸入：原始檔、來源檔，輸出：檔案
-// 2) 疊加寫入模式： 輸入：原始檔、來源內容(txt格式)，輸出：檔案
-// 3) 註解模式： 輸入：原始檔、頁數、內容區塊，輸出：檔案
