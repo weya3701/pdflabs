@@ -45,7 +45,34 @@ var (
 	once     sync.Once
 )
 
-// ReadLines 讀取檔案路徑並回傳字串切片
+// 請用golang實作一個名為ReadLines讀取檔案路徑內容並回傳
+// 回傳格式請使用[]string
+// 回傳資料[]string, error
+// 函式引入參數請使用path string型態
+// **程式碼說明:**
+//
+// 1.  **`package main`**:  聲明程式屬於 `main` package。
+// 2.  **`import ("bufio", "os")`**:  導入所需的套件：
+//   - `bufio`:  用於緩衝 I/O 操作，方便逐行讀取檔案。
+//   - `os`:  提供檔案操作相關的功能，例如開啟、關閉檔案。
+//
+// 3.  **`func ReadLines(path string) ([]string, error)`**:  定義 `ReadLines` 函數，它接受一個檔案路徑 `path` (字串) 作為輸入，並回傳兩個值：
+//   - `[]string`:  一個字串 slice，包含檔案中的每一行。
+//   - `error`:  一個 error 物件，如果沒有錯誤則為 `nil`。
+//
+// 4.  **`var lines []string`**:  宣告一個字串 slice `lines`，用於儲存檔案中的每一行。
+// 5.  **`file, err := os.Open(path)`**:  嘗試開啟指定路徑的檔案。如果發生錯誤（例如：檔案不存在、權限不足等），`err` 會被賦值。
+// 6.  **`if err != nil { return nil, err }`**:  如果開啟檔案時發生錯誤，立即回傳 `nil` (空 slice) 和 `err`。
+// 7.  **`defer file.Close()`**:  使用 `defer` 語句確保在函數結束時關閉檔案，即使發生錯誤也是如此。  這是一種良好的程式設計習慣，可以避免資源洩漏。
+// 8.  **`scanner := bufio.NewScanner(file)`**:  建立一個 `bufio.Scanner`，用於逐行讀取檔案內容。
+// 9.  **`for scanner.Scan() { ... }`**:  迴圈遍歷檔案的每一行：
+//   - `scanner.Scan()`:  讀取下一行。如果成功，`scanner.Text()` 可以取得該行內容。
+//   - `lines = append(lines, scanner.Text())`:  將讀取的行添加到 `lines` slice 中。
+//
+// 10. **`if err := scanner.Err(); err != nil { return nil, err }`**:  在迴圈結束後，檢查 `scanner` 過程中是否發生錯誤 (例如：I/O 錯誤)。 如果發生錯誤，則返回 `nil` 和 `err`。
+// 11. **`return lines, nil`**:  如果一切順利，則回傳儲存了檔案所有行的 `lines` slice 和 `nil` (表示沒有錯誤)。
+// ************************************測試階段*************************************************
+// 為Readliness函式撰寫一個測試函式
 func ReadLines(path string) ([]string, error) {
 	// 1. 打開檔案
 	file, err := os.Open(path)
@@ -55,7 +82,7 @@ func ReadLines(path string) ([]string, error) {
 	// 確保函式結束時關閉檔案資源
 	defer file.Close()
 
-	var lines []string
+	var lines []string = []string{}
 	// 2. 使用 Scanner 逐行掃描
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
