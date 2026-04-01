@@ -37,16 +37,23 @@ func main() {
 			PageHeight:   841.89,
 			LineHeight:   20.0,
 			ContentWidth: 500.0,
+			Position:     "bl",
+			Scale:        0.3,
+			Fontname:     "Helvetica",
+			Points:       12,
+			Rot:          0,
 		},
 	}
 
 	if *action == "Merge" {
-		pdfopt.Merge2file(params)
+		// pdfopt.Merge2file(params)
+		pdfopt.Merge2fileOptimized(params)
+		// pdfopt.Merge2file(params)
 	}
 	if *action == "WriteContentFromFile" {
 		pdfopt.WriteContentFromFile(params)
 	}
 	if *action == "StickTags" {
-		pdfopt.StickTags(params)
+		pdfopt.StickTagsTest(params)
 	}
 }

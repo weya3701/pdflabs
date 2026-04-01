@@ -32,3 +32,9 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+gofpdi/
+gopdf/
+pdf/
+errors/
+snippet/
+vendor/
