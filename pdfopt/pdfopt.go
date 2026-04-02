@@ -386,8 +386,23 @@ func StickTagsTest(params PdfOptParameter) {
 	// 2. 設定參數描述字串 (Description)
 	// 這是 pdfcpu 的核心設計，透過字串控制位置、字型、顏色、旋轉等
 	// pos:c (置中), s:1.0 (縮放), f:Helvetica (字型), points:48 (大小), c:1 0 0 (紅色)
-	desc := fmt.Sprintf("pos:%s, scale:%f, fontname:%s, points:%d, c:%d %d %d, rot:%d", params.PdfCoordinate.Position, params.PdfCoordinate.Scale, params.PdfCoordinate.Fontname, params.PdfCoordinate.Points, 0, 0, 0, params.PdfCoordinate.Rot)
-	desc = fmt.Sprintf("%s, off: %f %f", desc, *params.Y, *params.X)
+	desc := fmt.Sprintf(
+		"pos:%s, scale:%f, fontname:%s, points:%d, c:%d %d %d, rot:%d",
+		params.PdfCoordinate.Position,
+		params.PdfCoordinate.Scale,
+		params.PdfCoordinate.Fontname,
+		params.PdfCoordinate.Points,
+		0,
+		0,
+		0,
+		params.PdfCoordinate.Rot,
+	)
+	desc = fmt.Sprintf(
+		"%s, off: %f %f",
+		desc,
+		*params.Y,
+		*params.X,
+	)
 
 	// 3. 設定要插入的頁面 (nil 代表所有頁面)
 	selectedPages := []string{"1"}

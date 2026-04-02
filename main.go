@@ -7,19 +7,28 @@ import (
 
 func main() {
 
-	action := flag.String("action", "", "Command action name")
-	originfilename := flag.String("origin", "", "Origin File Name")
-	sourcefilename := flag.String("source", "", "Source File Name")
-	outputfilename := flag.String("output", "", "Output File Name")
-	tagContent := flag.String("content", "", "Content")
-	contentfromfile := flag.String("cf", "", "Content From File")
-	pagenum := flag.Int("pagenum", 1, "Page Number")
-	f_x := flag.Float64("x", 0, "X")
-	f_y := flag.Float64("y", 0, "Y")
+	var params pdfopt.PdfOptParameter
+	var action *string
+	var originfilename *string
+	var sourcefilename *string
+	var outputfilename *string
+	var tagContent *string
+	var contentfromfile *string
+	var pagenum *int
+	var f_x *float64
+	var f_y *float64
+
+	action = flag.String("action", "", "Command action name")
+	originfilename = flag.String("origin", "", "Origin File Name")
+	sourcefilename = flag.String("source", "", "Source File Name")
+	outputfilename = flag.String("output", "", "Output File Name")
+	tagContent = flag.String("content", "", "Content")
+	contentfromfile = flag.String("cf", "", "Content From File")
+	pagenum = flag.Int("pagenum", 1, "Page Number")
+	f_x = flag.Float64("x", 0, "X")
+	f_y = flag.Float64("y", 0, "Y")
 
 	flag.Parse()
-
-	var params pdfopt.PdfOptParameter
 
 	params = pdfopt.PdfOptParameter{
 		OriginFilename:  *originfilename,
